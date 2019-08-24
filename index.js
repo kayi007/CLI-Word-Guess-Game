@@ -23,15 +23,19 @@ function playGame(){
             message: "Guess a letter: ",
             name: "guess",
             validate: function(value){
-                if(value.length !== 1 && value !== "GG"){
-                    return "Please try again!";
+                if(value.length !== 1 && value.toLowerCase() !== "gg"){
+                    return false;
+                }else if(value.length === 1 && isNaN(value) === false)
+                {
+                    return false;
+                }else{
+                    return true;
                 }
-                return true;
             }
         }
     ]).then(function(answers){
-        if(answers.guess === "GG"){
-            console.log(chalk.cyan("Alright, please come again and goodbye for now."));
+        if((answers.guess).toLowerCase() === "gg"){
+            console.log(chalk.cyan("\nAlright, please come again and goodbye for now.\n"));
             return;
         }else if(answers.guess === ""){
             console.log(chalk.red("Please enter a valid letter!"));
@@ -46,7 +50,7 @@ function playGame(){
 
     });
 }
-// playGame();
+playGame();
 
 
 
