@@ -27,6 +27,15 @@ class Word{
         }
         return displayWord;
     }
+
+    correctWord(){
+        for(var i = 0; i < this.wordLetters.length; i++){
+            if(!this.wordLetters[i].guessed){
+                return false;
+            }
+        }
+        return true;
+    }
 }
 
 module.exports = Word;
