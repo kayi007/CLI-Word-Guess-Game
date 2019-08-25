@@ -79,6 +79,7 @@ function playGame(){
 // To Start the Game
 playGame();
 
+// End Game (Replay or Not)
 function endGame(result){
     if(result === "lost"){
         inquirer.prompt([
@@ -101,7 +102,7 @@ function endGame(result){
         resetGame();
     }
 }
-
+// Game Reset
 function resetGame(){
     guessLeft = 10;
     randomWord  = gotArr[Math.floor(Math.random() * gotArr.length)];

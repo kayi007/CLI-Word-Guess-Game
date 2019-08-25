@@ -27,7 +27,7 @@ class Word{
         }
         return displayWord;
     }
-
+    // Check if user got all letter correct
     correctWord(){
         for(var i = 0; i < this.wordLetters.length; i++){
             if(!this.wordLetters[i].guessed){
