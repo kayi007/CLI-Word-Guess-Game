@@ -14,13 +14,13 @@ The words will be on the House Names in Game of Thrones.
 To start the game, please enter the following command in your terminal: <br>
 `node index.js`
 
-For each word, you will start with **10 chances** to guess the word correctly.
+For each word, you will start with **12 chances** to guess the word correctly.
 
 If the letter you guessed is not in the word, your guess count will decrement by 1.
 
-If you used up all 10 chances, you lose the game but you have the option to exit the game or to replay the game.
+If you used up all 12 chances, you lose the game but you have the option to exit the game or to replay the game.
 
-If you guessed the word right before using up all your 10 chances, you win the game and the game will auto-generate the next word guess until you lose or exit the game. 
+If you guessed the word right before using up all your 12 chances, you win the game and the game will auto-generate the next word guess until you lose or exit the game. 
 
 To exit the game, you can simply type **"GG"** in the terminal.
 
