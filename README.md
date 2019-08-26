@@ -5,6 +5,9 @@ This is a Node.js Game of Thrones themed hangman Word Guess command-line game.
 This app is meant to be run in the user's Terminal and not in the user's browser. <br>
 :link: [CLICK TO WATCH]()
 
+To play the broswer version: <br>
+:link: [PLAY HERE](https://kayi007.github.io/Word-Guess-Game/)
+
 # How to Play
 The words will be on the House Names in Game of Thrones. 
 
