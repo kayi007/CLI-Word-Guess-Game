@@ -50,6 +50,7 @@ function playGame(){
             return playGame();
         }else if(wrongGuessesArr.includes(answers.guess)){
             console.log(chalk.red("\nThis letter has already been guessed and is not in the word! \nTry something else"));
+            guessLeft--;
             return playGame();
         }
         // Go through the current word's letters to see if user's guess is in the current word
