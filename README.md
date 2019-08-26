@@ -11,7 +11,7 @@ To play the broswer version: <br>
 # How to Play
 The words will be on the House Names in Game of Thrones. 
 
-For each word, you will start with 10 chances to guess the word right.
+For each word, you will start with **10 chances** to guess the word correctly.
 
 If the letter you guessed is not in the word, your guess count will decrement by 1.
 
@@ -19,7 +19,7 @@ If you used up all 10 chances, you lose the game but you have the option to exit
 
 If you guessed the word right before using up all your 10 chances, you win the game and the game will auto-generate the next word guess until you lose or exit the game. 
 
-To exit the game, you can simply type "GG" in the terminal.
+To exit the game, you can simply type **"GG"** in the terminal.
 
 To help you get a better chance on winning the game, the letter you guessed wrong will show in "Letter already guessed" and will warn you that you've already guessed that letter if you entered the wrong letter again.
 
