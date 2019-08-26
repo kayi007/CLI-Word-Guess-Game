@@ -5,13 +5,14 @@ var Word = require("./Word.js");
 // List of Game of Throne Words
 var gotArr = ["targaryen", "stark", "lannister", "greyjoy", "arryn", "baratheon", "tarly", "tyrell", "martell", "frey", "bolton"]
 
-var guessLeft = 10;
+var guessLeft = 12;
 var wrongGuessesArr = [];
 // Select a word randomly from the GOT word array
 var randomWord  = gotArr[Math.floor(Math.random() * gotArr.length)];
 var currentWord = new Word(randomWord);
 currentWord.wordLettersGenerator();
 // console.log(currentWord.wordLetters);
+// currentWordArr can be made as a property in Word obj
 var currentWordArr = randomWord.split("");
 // console.log(currentWordArr);
 
@@ -20,7 +21,7 @@ console.log(chalk.black.bgYellow.bold("\n     Game of Throne Word Guess Game    
 // Start Game
 function playGame(){
     console.log("\nNumber of Guesses Remaining: " + chalk.magenta(guessLeft) + "\n");
-    console.log("Letter already guessed: " + chalk.magenta(wrongGuessesArr.join(", ")) + "\n");
+    console.log("Wrong letter already guessed: " + chalk.magenta(wrongGuessesArr.join(", ")) + "\n");
     console.log("Current Word: " + currentWord.wordDisplay() + "\n");
     inquirer.prompt([
         {
@@ -39,6 +40,7 @@ function playGame(){
             // }
         }
     ]).then(function(answers){
+        guessLeft--;
         if((answers.guess).toLowerCase() === "gg"){
             console.log(chalk.cyan("\nAlright, please come again and goodbye for now.\n"));
             return;
@@ -50,7 +52,6 @@ function playGame(){
             return playGame();
         }else if(wrongGuessesArr.includes(answers.guess)){
             console.log(chalk.red("\nThis letter has already been guessed and is not in the word! \nTry something else"));
-            guessLeft--;
             return playGame();
         }
         // Go through the current word's letters to see if user's guess is in the current word
@@ -60,11 +61,10 @@ function playGame(){
         // Decrement Guess Count 
         if (currentWordArr.includes(answers.guess) === false){
             // console.log(currentWordArr.includes(answers.guess));
-            guessLeft--;
             wrongGuessesArr.push(answers.guess);
         }
         // Lose Game If Guess Left is 0
-        if(guessLeft === 0){
+        if(guessLeft === 0 && currentWord.correctWord() === false){
             endGame('lost');
             return;
         }
@@ -73,7 +73,7 @@ function playGame(){
             endGame('win');
             return;
         }
-
+    
         playGame();
     });
 }
@@ -107,7 +107,7 @@ function endGame(result){
 }
 // Game Reset
 function resetGame(){
-    guessLeft = 10;
+    guessLeft = 12;
     randomWord  = gotArr[Math.floor(Math.random() * gotArr.length)];
     currentWord = new Word(randomWord);
     currentWord.wordLettersGenerator();
