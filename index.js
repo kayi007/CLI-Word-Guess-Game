@@ -11,9 +11,9 @@ var wrongGuessesArr = [];
 var randomWord  = gotArr[Math.floor(Math.random() * gotArr.length)];
 var currentWord = new Word(randomWord);
 currentWord.wordLettersGenerator();
-console.log(currentWord.wordLetters);
+// console.log(currentWord.wordLetters);
 var currentWordArr = randomWord.split("");
-console.log(currentWordArr);
+// console.log(currentWordArr);
 
 console.log(chalk.black.bgYellow.bold("\n     Game of Throne Word Guess Game     ") + "\n----------------------------------------\n          ('GG' to Exit Game)\n");
 
@@ -86,7 +86,7 @@ function endGame(result){
             {
                 type: "list",
                 name: "lostReplay",
-                message: "\nYou Lost...Would you like to try it again?",
+                message: "You Lost...Would you like to try it again?",
                 choices: ["YES", "NO"]
             }
         ]).then(function(answers){
@@ -98,7 +98,9 @@ function endGame(result){
             }
         });
     }else if(result === "win"){
-        console.log(chalk.green("\nYOU GOT IT!\n"));
+        console.log(chalk.green("\nYOU GOT IT!"));
+        console.log(chalk.green("\nThe Word is: " + currentWord.wordDisplay()));
+        console.log("\n------------ NEW WORD ------------")
         resetGame();
     }
 }
